@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterOutlet } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { LocalStorageService } from '../local-storage.service';
 import { UserService } from '../user.service';
 
@@ -9,6 +10,9 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+
+  apiUrl = environment.apiUrl;
 
   constructor(private activatedRoute : ActivatedRoute, private localStorage : LocalStorageService, private router : Router, private userService: UserService) { }
 

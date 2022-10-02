@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://angular-spotify-api.vercel.app/'
+  apiUrl: 'http://localhost:8888/'
 };
 
 /*

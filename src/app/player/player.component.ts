@@ -18,7 +18,7 @@ export class PlayerComponent implements OnInit {
   currentTime : any;
   volume : any;
 
-  verticalVolumeSlider : any = this.onResize(null);
+  verticalVolumeSlider = window.innerWidth > 768 ? false : true;
   
 
   constructor(private playerService:  SpotifyPlayerService, private renderer : Renderer2) { 
