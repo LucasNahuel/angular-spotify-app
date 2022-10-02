@@ -1,0 +1,21 @@
+<div style="max-width: 960px; margin: 1em auto;" *ngIf="album">
+
+    <div style="display: flex; flex-direction: row; gap: 1em;  padding: 1em;"  id="card">
+        <img src="{{album.images[0].url ? album.images[0].url : './../../../assets/undefined_user.webp'}}" style="object-fit: contain; width: 14vw; min-width: 100px; ">
+
+
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; ">
+            <span style="font: 900 5vw Roboto,'Helvetica Neue', sans-serif; margin: auto 0; color: white;">{{album.name}}</span>
+
+            <div style="display:flex; flex-direction: row">
+                <a style="color: #c2185b;" *ngFor="let artist of album.artists; let i = index; width: auto;" href="/artist/{{artist.id}}">{{artist.name}}<span *ngIf="i+1 < album.artists.length" style="text-decoration: none; color: white;">{{', '}}</span></a>
+            </div>
+
+            <span style="color: white;">{{album.release_date}}</span>
+        </div>
+    </div>
+
+    <app-tracks-list [tracks]="tracks" [rowHeaders]="['play', 'name', 'track.length']" [rows]="['play', 'name', 'track.length']" ></app-tracks-list>
+    
+    
+</div>

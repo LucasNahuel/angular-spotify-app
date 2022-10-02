@@ -1,0 +1,17 @@
+<div style="max-width: 960px; margin: 0 auto; display: flex; flex-direction: row; justify-content:center; flex-wrap: wrap; gap: 1em;">
+
+    <mat-card *ngFor="let artist of artists" style="width: 166px; cursor: pointer;" (click)="navigateArtist(artist.id)" >
+
+        <img mat-card-image src="{{artist.images[2] ? artist.images[2].url : './../../../assets/undefined_user.webp'}}">
+
+        <mat-card-header>
+            <mat-card-title>{{artist.name}}</mat-card-title>
+        </mat-card-header>
+
+        
+
+    </mat-card>
+
+
+
+</div>

@@ -1,0 +1,23 @@
+<div style="max-width: 960px; margin: 1em auto;" *ngIf="artist">
+
+    <div style="display: flex; flex-direction: row; gap: 1em;  padding: 1em;">
+        <img src="{{artist.images[0] ? artist.images[0].url : './../../../assets/undefined_user.webp'}}" style="object-fit: contain; width: 14vw; min-width: 100px; ">
+
+
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column;  padding: 1em;">
+            <span style="font: 900 5vw Roboto,'Helvetica Neue', sans-serif; margin: auto 0; color: white;">{{artist.name}}</span>
+
+        </div>
+    </div>
+
+    <h1 *ngIf="topTracks" >Top Tracks:</h1>
+    <app-tracks-list *ngIf="topTracks" [tracks]="topTracks"></app-tracks-list>
+
+    <h1 *ngIf="albums" >Albums:</h1>
+    <app-album-list *ngIf="albums" [albums]="albums"></app-album-list>
+
+    <h1 *ngIf="relatedArtists" >Related artists:</h1>
+    <app-artists-list *ngIf="relatedArtists" [artists]="relatedArtists"></app-artists-list>
+    
+    
+</div>

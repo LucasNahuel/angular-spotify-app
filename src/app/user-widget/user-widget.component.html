@@ -1,0 +1,15 @@
+<div *ngIf="user" (click)="toggleWidgetMenu()" style="margin: 0 1em; display: flex; flex-direction: row;gap: 1em; align-items: center; width: fit-content; border-radius: 20px; background-color: #c2185b; border-style: solid; border-color: #c2185b; font-size: 14px; cursor: pointer;">
+    <img src="{{user ? user.images[0].url : './../../../assets/undefined_user.webp'}}" style="height: 40px; height: 40px; border-radius: 50%; object-fit: contain;">
+    <p class="user-widget-item" style="margin: auto 0;">{{user.display_name}}</p>
+    <button class="user-widget-item" mat-mini-fab color="primary" style="box-shadow: none;"  >
+        <mat-icon>{{changeIconToggle()}}</mat-icon>
+    </button>
+    
+</div>
+<app-overlay *ngIf="widgetMenuExpanded" style="z-index: 1;" (click)="toggleWidgetMenu()" ></app-overlay>
+
+
+<mat-selection-list color="primary"  [multiple]="false" style="background-color: #212121; position: absolute; z-index: 2; inset: 64px 1em auto auto; border-radius: 4px; margin-top: 1em; margin-left: 1em; transition: transform 0.2s; " [ngStyle]="{'transform' : widgetMenuExpanded ? 'scaley(1)' : 'scaley(0)'}">
+    <mat-list-option (click)="logout()"><div style="display:flex; align-items: center; gap: 1em;"><mat-icon style="margin:auto auto;">logout</mat-icon>Logout</div></mat-list-option>
+</mat-selection-list>
+

@@ -1,0 +1,23 @@
+<mat-toolbar style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 0;" >
+    <div style="width: 33%; align-items: center; display: flex; flex-direction: row;" id="toolbarContainer" >
+        <div style=" height: 40px; width: 40px; align-items: center; display: flex; justify-content: center; min-width: 40px; border-style: solid; border-width: 1px; border-color: #c2185b; border-radius: 50%; margin: 0 1em;" id="appIcon">
+            <mat-icon style="color: #c2185b;">music_note</mat-icon>
+        </div>
+        
+        <span id="appTitle">Angular Spotify</span>
+    </div>
+    
+
+    <div style="width: 33%;" id="searchBar">
+        <app-search-bar></app-search-bar>
+    </div>
+
+    <div style="width: 33%; display: flex; justify-content: flex-end;" id="toolbarContainer" >
+        <app-user-widget></app-user-widget>
+    </div>
+    
+    
+    
+
+    
+</mat-toolbar>

@@ -1,0 +1,26 @@
+
+<mat-chip-list aria-label="Fish selection" style="display: flex; flex-direction: row; gap: 1em; justify-content: center;">
+    <mat-chip (click)="filterSearch('all')">All</mat-chip>
+    <mat-chip (click)="filterSearch('track')">Tracks</mat-chip>
+    <mat-chip (click)="filterSearch('album')">Albums</mat-chip>
+    <mat-chip (click)="filterSearch('artist')">Artists</mat-chip>
+    <mat-chip (click)="filterSearch('playlist')">Playlists</mat-chip>
+</mat-chip-list>
+
+
+<router-outlet></router-outlet>
+
+<h1 *ngIf="tracks" >Tracks:</h1>
+<app-tracks-list *ngIf="tracks" [tracks]="tracks" style="width: 800px;max-width: 800px; margin: 0 auto;"></app-tracks-list>
+<h1 *ngIf="artists" >Artists:</h1>
+<app-artists-list *ngIf="artists" [artists]="artists"></app-artists-list>
+<h1 *ngIf="albums" >Albums:</h1>
+<app-album-list *ngIf="albums" [albums]="albums"></app-album-list>
+<h1 *ngIf="playlists" >Playlists:</h1>
+<app-play-list *ngIf="playlists" [playlists]="playlists"></app-play-list>
+
+<h1 *ngIf="recomendedTracks" >Some recommended tracks:</h1>
+<app-tracks-list *ngIf="recomendedTracks" [tracks]="recomendedTracks" style="width: 800px;max-width: 800px; margin: 0 auto;"></app-tracks-list>
+
+<h1 *ngIf="recomendedArtists" >Some recommended artists:</h1>
+<app-artists-list *ngIf="recomendedArtists" [artists]="recomendedArtists"></app-artists-list>

@@ -1,0 +1,4 @@
+<mat-form-field *ngIf="isLogedIn == true" class="example-form-field" appearance="outline" style="font-size: 14px; width: 100%; height: 30px;top: -6px;">
+    <mat-label>Search</mat-label>
+    <input  matInput type="text" [(ngModel)]="searchTerm" (input)="search()">
+</mat-form-field>

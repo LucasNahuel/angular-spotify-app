@@ -1,0 +1,18 @@
+<div  style="max-width: 960px; margin: 0 auto; display: flex; flex-direction: row; justify-content:center; flex-wrap: wrap; gap: 1em;">
+
+    <mat-card *ngFor="let playlist of playlists" style="width: 166px; cursor:pointer;"  (click)="navigateToPlaylist(playlist.id)">
+
+        <img mat-card-image src={{playlist.images[0].url}} >
+
+        <mat-card-header>
+            <mat-card-title>{{playlist.name}}</mat-card-title>
+            <mat-card-subtitle><a>{{playlist.owner.display_name}}</a></mat-card-subtitle>
+        </mat-card-header>
+
+        
+
+    </mat-card>
+
+
+
+</div>

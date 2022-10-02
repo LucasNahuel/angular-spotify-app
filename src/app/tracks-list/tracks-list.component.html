@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="tracks" class="mat-elevation-z8" style="width: 960px;margin: 2em auto; border-radius: 4px;" >
+
+    <ng-container matColumnDef="play">
+        <th mat-header-cell *matHeaderCellDef aria-label="play action"></th>
+        <td style="padding: 8px 8px 8px 0;" mat-cell *matCellDef="let element">
+            <button (click)="playTrack(element)" mat-mini-fab color="primary" *ngIf="playingTrack != element || paused">
+                <mat-icon >play_arrow</mat-icon>
+            </button>
+            <img *ngIf="playingTrack == element && !paused" src="./../../assets/playing.gif" style="height: 40px; height: 40px; object-fit: contain;">
+        </td>
+
+    </ng-container>
+
+    <ng-container matColumnDef="album-image">
+        <th mat-header-cell *matHeaderCellDef aria-label="album image"></th>
+        <td style="padding: 14px 8px 8px 0;" mat-cell *matCellDef="let element"><img src={{element.album.images[2].url}} style="height: 40px; height: 40px; object-fit: contain;"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Track Name </th>
+    <td style="padding: 8px 8px 8px 0;" mat-cell *matCellDef="let element" [ngStyle]="{'color': playingTrack == element ? '#c2185b' : 'white'}"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="album.name">
+        <th mat-header-cell *matHeaderCellDef> Album Name </th>
+        <td style="padding: 8px 8px 8px 0;" mat-cell *matCellDef="let element" [ngStyle]="{'color': playingTrack == element ? '#c2185b' : 'white'}"><a style="color: white" href="/album/{{element.album.id}}">{{element.album.name}}</a>  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="track.length">
+        <th mat-header-cell *matHeaderCellDef> Track length </th>
+        <td style="padding: 8px 8px 8px 0;" mat-cell *matCellDef="let element" [ngStyle]="{'color': playingTrack == element ? '#c2185b' : 'white'}"> {{formatDurationToMinutes(element.duration_ms)}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="rowHeaders"></tr>
+    <tr mat-row *matRowDef="let row; columns: rows;"></tr>
+</table>

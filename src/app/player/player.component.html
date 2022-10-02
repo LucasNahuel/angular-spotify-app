@@ -1,0 +1,64 @@
+<footer style="gap: 1em;position: fixed; inset: 90% 0 0 0 ; height: 100px; background-color: #212121; display: flex; flex-direction: row;" (window:resize)="onResize($event)">
+   
+    <audio hidden #audio controls autoplay style="display: solid !important;" src={{playing?.preview_url}} (ended)="playingEnded()" (timeupdate)="calctime()">
+
+
+
+    </audio>
+
+    <div style="display: flex; flex-direction: row; align-items: center; transform: scaleY(0); transition: transform 0.2s; width: calc(33% - 1em);" #trackMiniature id="trackMiniature">
+        
+        <div style="padding: 8px; display:flex; flex-direction: row; gap: 1em; border-radius: 4px; background-color: #212121;">
+            <img src={{playing?.album.images[2].url}} style="height:64px; object-fit: contain; margin: auto 0;">
+
+            <ul style="padding: 0px; color: white; list-style-type: none; margin: auto 0;">
+                <li>{{playing?.name}}</li>
+                <li>{{playing?.album.name}}</li>
+                <li>
+                    <a style="color: #c2185b;" *ngFor="let artist of playing?.artists; let i = index;" href={{artist.href}}>{{artist.name}}<span *ngIf="i+1 < playing.artists.length" style="text-decoration: none; color: white;">, </span></a>
+                </li>
+            </ul>
+
+        </div>
+        
+        
+
+    </div>
+
+    <div style="display:flex; flex-direction: row; align-items: center; width:66%;" id="playerContainer">
+
+
+        <div style="display: flex; flex-direction:column; align-items: center; padding-top: 8px; width: 50%; min-width: 320px;">
+            <div style="display: flex; flex-direction: row; align-items:center; gap: 1em;">
+                <button mat-mini-fab color="primary" (click)="playPrevious()"><mat-icon>skip_previous</mat-icon></button>
+                <button mat-mini-fab color="primary" (click)="togglePlay()"><mat-icon>{{this.onplay ? 'pause' : 'play_arrow'}}</mat-icon></button>
+                <button mat-mini-fab color="primary" (click)="playNext()"><mat-icon>skip_next</mat-icon></button>
+            </div>
+    
+            <div style="display: flex; flex-direction: row; align-items:center; gap: 1em; width: 100%;">
+    
+                <p style="color:white; margin: auto 0; flex: none;">{{getTime()}} : 30</p>
+                <mat-slider [disabled]="!playing" style="width: 100%;" color="primary" min="0" max="30" step="1" [(value)]="currentTime" (change)="seek()"></mat-slider>
+                
+            </div>
+    
+        
+    
+            
+        </div>
+    
+        
+        <div style="display: flex; width: 50%; align-items: center; flex-direction: row; justify-content: center;" id="volume">
+            <mat-icon style="color: white;">volume_up</mat-icon>
+            <mat-slider [vertical]="verticalVolumeSlider" [disabled]="!playing" color="primary" min="0" max="1" step="0.1" [(value)]="volume" (change)="changeVolume()"></mat-slider>
+        </div>
+
+
+
+    </div>
+
+
+    
+    
+   
+</footer>
