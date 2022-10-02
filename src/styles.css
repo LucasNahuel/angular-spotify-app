@@ -35,7 +35,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 
   #volume{
     position: fixed !important;
-    inset: 72% 1em auto auto !important;
+    inset: 70% 1em auto auto !important;
     width: fit-content !important;
     height: fit-content !important;
     flex-direction: column-reverse !important;
