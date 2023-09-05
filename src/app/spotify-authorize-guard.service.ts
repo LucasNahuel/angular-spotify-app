@@ -28,4 +28,6 @@ export class SpotifyAuthorizeGuardService implements CanActivate{
       this.router.navigate(['/login']);
     
   }
+
+
 }
